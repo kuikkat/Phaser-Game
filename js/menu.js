@@ -1,6 +1,9 @@
 var menuState = {
 
 	create: function() { 
+
+		this.cursor = game.input.keyboard.createCursorKeys();
+
 		// Name of the game
 		// todo ändra labeln inte satanistiska svärdomar
 		var nameLabel = game.add.text(game.world.centerX, 80, 'Helvete Welcome', { font: '50px Arial', fill: '#ffffff' });
@@ -12,6 +15,11 @@ var menuState = {
 		
 		// Start the game when the up arrow key is pressed
 		// todo or button start
+
+	},
+
+	update: function() {
+		if (this.cursor.left.isUp) 
 		this.start
 	},
 
