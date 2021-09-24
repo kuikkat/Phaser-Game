@@ -2,6 +2,8 @@ var menuState = {
 
 	create: function() { 
 
+		game.add.image(game.world.centerX, game.world.centerY, 'background').anchor.set(0.5);
+
 		this.cursor = game.input.keyboard.createCursorKeys();
 
 		// Name of the game

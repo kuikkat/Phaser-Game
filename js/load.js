@@ -13,7 +13,6 @@ var loadState = {
 	},
 
 	create: function() { 
-		game.add.image('background');
 		game.state.start('menu');
 	}
 };
