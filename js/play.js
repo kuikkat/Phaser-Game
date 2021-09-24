@@ -38,9 +38,8 @@ var playState = {
 
 	updateCoinPosition: function() {
 
-		//Array
 		var coinPosition = [
-			{x: 140, y: 60}, {x: 360, y: 60},
+			{x: 140, y: 60}, {x: 360, y: 60}
 
 		];
 
