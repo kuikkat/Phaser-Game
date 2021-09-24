@@ -10,9 +10,6 @@ var menuState = {
 		var startLabel = game.add.text(game.world.centerX, game.world.height-80, 'press the up arrow key to start', { font: '25px Arial', fill: '#ffffff' });
 		startLabel.anchor.setTo(0.5, 0.5);	
 		
-
-		
-
 		// Start the game when the up arrow key is pressed
 		// todo or button start
 		this.start
