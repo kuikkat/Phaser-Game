@@ -14,7 +14,6 @@ var playState = {
 		this.coin.anchor.setTo(0.5, 0.5);
 
 		this.createWorld();
-
 		},
 
 	update: function() {
@@ -40,7 +39,6 @@ var playState = {
 
 		var coinPosition = [
 			{x: 140, y: 60}, {x: 360, y: 60}
-
 		];
 
 		for (var i = 0; i < this.updateCoinPosition.lenght; i++) {
@@ -52,7 +50,6 @@ var playState = {
 
 		var newPosition = coinPosition[game.rnd.integerInRange(0, coinPosition.lenght -1)];
 		this.coin.reset(newPosition.x, newPosition.y);
-
 	},
 
 	movePlayer: function() {
@@ -76,8 +73,6 @@ var playState = {
 	},
 
 	createWorld: function() {
-
-		//Walls
 
 		this.walls = game.add.group();
 		this.walls.enableBody = true;
