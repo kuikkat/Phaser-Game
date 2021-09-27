@@ -14,6 +14,10 @@ var playState = {
 		this.coin.anchor.setTo(0.5, 0.5);
 
 		this.createWorld();
+
+		var music = game.add.audio('yil');
+		music.play();
+
 		},
 
 	update: function() {
@@ -37,18 +41,22 @@ var playState = {
 	updateCoinPosition: function() {
 
 		var coinPosition = [
-			{x: 140, y: 60}, {x: 360, y: 60}
-		]
+			{x: 140, y: 60}, {x: 360, y: 60},
+			{x:60, y: 140}
 
-		for (var i = 0; i < this.updateCoinPosition.lenght; i++) {
+
+		];
+
+		for(var i = 0; i < this.updateCoinPosition.length; i++) {
 			if(coinPosition[i].x === this.coin.x) {
-				
+
 				coinPosition.splice(i, 1);
 			}
 		}
 
-		var newPosition = coinPosition[game.rnd.integerInRange(0, coinPosition.lenght -1)];
+		var newPosition = coinPosition[game.rnd.integerInRange(0, coinPosition.length -1)];
 		this.coin.reset(newPosition.x, newPosition.y);
+
 	},
 
 	movePlayer: function() {
@@ -64,6 +72,7 @@ var playState = {
 
 		if (this.cursor.up.isDown && this.player.body.touching.down)
     	this.player.body.velocity.y = -240;
+		
 	},
 
 	playerDie: function() {
@@ -89,5 +98,5 @@ var playState = {
 		
 		this.walls.setAll('body.immovable', true);
 
-	}
+	},
 };
