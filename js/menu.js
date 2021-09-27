@@ -7,12 +7,16 @@ var menuState = {
 
         var button = game.add.button(game.world.centerX, 235, 'button', this.start, 2, 1, 0);
         button.anchor.setTo(0.5, 0.5);
-
-		var mute = game.add.button(20, 20, 'mute', this.mute, 2, 1, 0);
-        mute.anchor.setTo(0.5, 0.5);
     
         button.onInputDown.add(this.start);
-		mute.onInputDown.add(this.mute);
+
+		this.muteButton = game.add.button(20, 20, 'mute', this.toggleSound, this);
+		this.muteButton.input.useHandCursor = true;
+
+		if (game.sound.mute) {
+
+			this.muteButton.frame = 1;
+		}
 	},
 
 	start: function() {
@@ -20,9 +24,10 @@ var menuState = {
 		game.state.start('play');	
 	},
 
-	mute: function() {
+	toggleSound: function() {
 
-		
+		game.sound.mute = ! game.sound.mute;
+		this.muteButton.frame = game.sound.mute ? 1 : 0
 	}
 
 

@@ -15,7 +15,7 @@ var playState = {
 
 		this.createWorld();
 
-		var music = game.add.audio('yil');
+		var music = game.add.audio('battle');
 		music.play();
 
 		},
