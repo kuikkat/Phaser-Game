@@ -13,8 +13,11 @@ var loadState = {
 		game.load.image('WallHorizontal', 'assets/images/WallHorizontal.png');
 		game.load.image('WallVertical', 'assets/images/WallVertical.png');
 		game.load.image('button', 'assets/images/button.jpg');
-		game.load.spritesheet('mute', 'assets/images/mute.png', 28, 22);
+		game.load.image('mute', 'assets/images/mute.png');
 		game.load.audio('battle', 'assets/audio/battle.mp3');
+		game.load.audio('coinaudio', 'assets/audio/coin.mp3');
+		game.load.audio('death', 'assets/audio/death.mp3');
+		game.load.audio('jump', 'assets/audio/jump.wav');
 		
 	},
 

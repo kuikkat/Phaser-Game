@@ -35,6 +35,8 @@ var playState = {
 
 	takeCoin: function(player, coin) {
 
+		var coinaudio = game.add.audio('coinaudio');
+		coinaudio.play();
 		this.updateCoinPosition();
 	},
 
@@ -42,7 +44,7 @@ var playState = {
 
 		var coinPosition = [
 			{x: 140, y: 60}, {x: 360, y: 60},
-			{x:60, y: 140}
+			{x:60, y: 140}, {x: 60, y: 250}
 
 
 		];
@@ -77,6 +79,8 @@ var playState = {
 
 	playerDie: function() {
 
+		var death = game.add.audio('death');
+		death.play();
 		game.state.start('menu');
 	},
 
