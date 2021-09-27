@@ -21,7 +21,6 @@ var playState = {
 		game.physics.arcade.collide(this.player, this.walls);
 		game.physics.arcade.overlap(this.player, this.coin, this.takeCoin, null, this);
 
-		//Move Player
 		this.movePlayer();
 
 		if(!this.player.inWorld) {
@@ -39,7 +38,7 @@ var playState = {
 
 		var coinPosition = [
 			{x: 140, y: 60}, {x: 360, y: 60}
-		];
+		]
 
 		for (var i = 0; i < this.updateCoinPosition.lenght; i++) {
 			if(coinPosition[i].x === this.coin.x) {
@@ -63,7 +62,7 @@ var playState = {
 		else 
     	this.player.body.velocity.x = 0;
 
-		if (this.cursor.up.isDown && this.player.body.touching.down) 
+		if (this.cursor.up.isDown && this.player.body.touching.down)
     	this.player.body.velocity.y = -240;
 	},
 
