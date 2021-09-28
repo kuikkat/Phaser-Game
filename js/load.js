@@ -17,7 +17,6 @@ var loadState = {
 		game.load.audio('battle', 'assets/audio/battle.mp3');
 		game.load.audio('coinaudio', 'assets/audio/coin.mp3');
 		game.load.audio('death', 'assets/audio/death.mp3');
-		game.load.audio('jump', 'assets/audio/jump.wav');
 		
 	},
 
