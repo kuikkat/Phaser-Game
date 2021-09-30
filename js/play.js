@@ -78,11 +78,18 @@ var playState = {
 		
 	},
 
+	playerAnimation: function() {
+
+		player.animations.add('left', [2, 3], 10, true);
+    	player.animations.add('turn', [0], 20, true);
+    	player.animations.add('right', [2, 3], 10, true);
+	},
+
 	playerDie: function() {
 
 		var death = game.add.audio('death');
 		death.play();
-		game.state.start('menu');
+		game.state.start('gameover');
 	},
 
 	createWorld: function() {
