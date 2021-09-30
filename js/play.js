@@ -15,7 +15,7 @@ var playState = {
 
 		this.createWorld();
 
-		var music = game.add.audio('battle');
+		var music = game.add.audio('main');
 		music.play();
 
 		},
@@ -87,9 +87,12 @@ var playState = {
 
 	playerDie: function() {
 
+		//Make delay on gameover state so death sound effect can play
+
 		var death = game.add.audio('death');
 		death.play();
 		game.state.start('gameover');
+		game.sound.stopAll();
 	},
 
 	createWorld: function() {
