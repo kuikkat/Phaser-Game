@@ -1,3 +1,6 @@
+var score = 0;
+var scoreText;
+
 var playState = {
 
 	create: function() { 
@@ -18,10 +21,9 @@ var playState = {
 		var music = game.add.audio('main');
 		music.play();
 
-		var score = 0;
-		var scoreText;
 		scoreText = game.add.text(30, 30, 'Score: 0', { fontSize: '32px', fill: '#000000' });
 	},
+	
 
 	update: function() {
 
@@ -40,7 +42,7 @@ var playState = {
 
 		var coinaudio = game.add.audio('coinaudio');
 		coinaudio.play();
-		score += 10;
+		score += 1;
 		scoreText.text = 'Score: ' + score;
 		this.updateCoinPosition();
 	},
@@ -119,4 +121,11 @@ var playState = {
 		this.walls.setAll('body.immovable', true);
 
 	},
+
+	createBigWorld: function() {
+
+		if(score === 100) {
+			
+		}
+	}
 };
