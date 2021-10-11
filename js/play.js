@@ -12,6 +12,13 @@ var playState = {
 		game.physics.arcade.enable(this.player);
 		this.player.body.gravity.y = 250;
 
+		this.enemy = game.add.sprite(game.world.centerX, 0, 'enemy');
+		this.enemy.anchor.setTo(0.5, 0.5);
+		game.physics.arcade.enable(this.enemy);
+		this.enemy.body.bounce.x = 1;
+		this.enemy.body.gravity.y = 1000;
+		this.enemy.body.velocity.x = -200;
+
 		this.coin = game.add.sprite(460, 300, 'coin');
 		game.physics.arcade.enable(this.coin);
 		this.coin.anchor.setTo(0.5, 0.5);
@@ -29,6 +36,9 @@ var playState = {
 
 		game.physics.arcade.collide(this.player, this.walls);
 		game.physics.arcade.overlap(this.player, this.coin, this.takeCoin, null, this);
+		game.physics.arcade.collide(this.enemy, this.walls);
+		game.physics.arcade.overlap(this.enemy, this.coin);
+		game.physics.arcade.collide(this.enemy, this.player, this.playerDie);
 
 		this.movePlayer();
 
