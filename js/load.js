@@ -15,7 +15,7 @@ var loadState = {
 		game.load.image('WallHorizontal', 'assets/images/WallHorizontal.png');
 		game.load.image('WallVertical', 'assets/images/WallVertical.png');
 		game.load.image('button', 'assets/images/button.png');
-		game.load.spritesheet('progress', 'assets/images/progress.png');
+		game.load.image('progress', 'assets/images/progress.png');
 		game.load.image('mute', 'assets/images/mute.png');
 		game.load.audio('main', 'assets/audio/main.mp3');
 		game.load.audio('coinaudio', 'assets/audio/coin.mp3');
