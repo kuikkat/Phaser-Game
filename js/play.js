@@ -1,4 +1,4 @@
-var score = 0;
+var score = 95;
 var scoreText;
 
 var playState = {
@@ -54,6 +54,7 @@ var playState = {
 		coinaudio.play();
 		score += 1;
 		scoreText.text = 'Score: ' + score;
+		this.scoreFull;
 		this.updateCoinPosition();
 	},
 
@@ -83,9 +84,11 @@ var playState = {
 
 		this.cursor = game.input.keyboard.createCursorKeys();
 
-		if (this.cursor.left.isDown) 
+		if (this.cursor.left.isDown) {
     	this.player.body.velocity.x = -200;
-		else if (this.cursor.right.isDown) 
+		this.player.animations.play('left');
+		}
+		else if (this.cursor.right.isDown)
     	this.player.body.velocity.x = 200;
 		else 
     	this.player.body.velocity.x = 0;
@@ -97,9 +100,8 @@ var playState = {
 
 	playerAnimation: function() {
 
-		player.animations.add('left', [2, 3], 10, true);
-    	player.animations.add('turn', [0], 20, true);
-    	player.animations.add('right', [2, 3], 10, true);
+		this.player.animations.add('right', [1, 2], 8, true);
+		this.player.animations.add('left', [3, 4], 8, true);
 	},
 
 	playerDie: function() {
@@ -134,8 +136,13 @@ var playState = {
 
 	createBigWorld: function() {
 
-		if(score === 100) {
-			
+	},
+
+	scoreFull: function() {
+	if (score === 100) {
+
+		game.state.start('gameover');
+		game.sound.stopAll();
 		}
 	}
 };
