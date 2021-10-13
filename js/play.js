@@ -1,4 +1,4 @@
-var score = 95;
+var score = 0;
 var scoreText;
 
 var playState = {
@@ -88,20 +88,27 @@ var playState = {
     	this.player.body.velocity.x = -200;
 		this.player.animations.play('left');
 		}
-		else if (this.cursor.right.isDown)
+		else if (this.cursor.right.isDown) {
     	this.player.body.velocity.x = 200;
-		else 
+		this.player.animations.play('right');
+		}
+		else {
     	this.player.body.velocity.x = 0;
+		this.player.animations.play('idle');
+		}
 
-		if (this.cursor.up.isDown && this.player.body.touching.down)
+		if (this.cursor.up.isDown && this.player.body.touching.down) {
     	this.player.body.velocity.y = -240;
-		
+		this.player.animations.play('jump');
+		}
 	},
 
 	playerAnimation: function() {
 
 		this.player.animations.add('right', [1, 2], 8, true);
-		this.player.animations.add('left', [3, 4], 8, true);
+		this.player.animations.add('left', [1, 3], 8, true);
+		this.player.animations.add('idle', [1], 8, true);
+		this.player.animations.add('jump', [4], 8, true);
 	},
 
 	playerDie: function() {

@@ -9,8 +9,7 @@ var loadState = {
 
 		game.load.image('background', 'assets/images/background.png');
 		game.load.image('coin', 'assets/images/coin.png');
-		game.load.image('player', 'assets/images/player.png');
-		game.load.spritesheet('player2', 'assets/player2.png', 20, 20);
+		game.load.spritesheet('player', 'assets/images/player.png', 30, 26);
 		game.load.image('enemy', 'assets/images/enemy.png');
 		game.load.image('pixel', 'assets/images/pixel.png');
 		game.load.image('WallHorizontal', 'assets/images/WallHorizontal.png');
