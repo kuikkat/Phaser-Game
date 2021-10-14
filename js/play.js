@@ -1,5 +1,6 @@
 var score = 0;
 var scoreText;
+var emitter;
 
 var playState = {
 
@@ -39,8 +40,8 @@ var playState = {
 		game.physics.arcade.collide(this.enemy, this.walls);
 		game.physics.arcade.overlap(this.enemy, this.coin);
 		game.physics.arcade.collide(this.enemy, this.player, this.playerDie);
-		game.physics.arcade.collide(this.player, this.layer);
- 		game.physics.arcade.collide(this.enemy, this.layer);
+		game.physics.arcade.collide(this.player, this.blocks);
+ 		game.physics.arcade.collide(this.enemy, this.blocks);
 
 		this.movePlayer();
 
@@ -119,6 +120,7 @@ var playState = {
 
 		var death = game.add.audio('death');
 		death.play();
+		this.explosion;
 		game.state.start('gameover');
 		game.sound.stopAll();
 	},
@@ -127,7 +129,8 @@ var playState = {
 
 		this.map = game.add.tilemap('map');
 		this.map.addTileSetImage('tileset');
-		this.layer = this.map.createLayer('Tile Layer 1');
+		this.background = this.map.createLayer('background');
+		this.blocks = this.map.createLayer('blocks');
 
 		this.layer.resizeWorld();
 		this.map.setCollision(1);
@@ -156,6 +159,33 @@ var playState = {
 	createBigWorld: function() {
 
 	},
+
+	particleBurst: function(pointer) {
+
+		emitter.x = pointer.x;
+		emitter.y = pointer.y;
+	
+		emitter.start(true, 4000, null, 10);
+
+		game.time.events.add(2000, destroyEmitter, this);
+	
+	},
+	
+	destroyEmitter: function() {
+	
+		emitter.destroy();
+
+	},
+
+	explosion: function() {
+
+		emitter = game.add.emitter(0, 0, 100);
+
+		emitter.makeParticles('explosion');
+		emitter.gravity = 200;
+	
+	},
+	
 
 	scoreFull: function() {
 	if (score === 100) {

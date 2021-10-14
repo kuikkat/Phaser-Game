@@ -12,6 +12,7 @@ var loadState = {
 		game.load.spritesheet('player', 'assets/images/player.png', 30, 26);
 		game.load.image('enemy', 'assets/images/enemy.png');
 		game.load.image('pixel', 'assets/images/pixel.png');
+		game.load.image('explosion', 'assets/images/explosion.png');
 		game.load.image('WallHorizontal', 'assets/images/WallHorizontal.png');
 		game.load.image('WallVertical', 'assets/images/WallVertical.png');
 		game.load.image('button', 'assets/images/button.png');
