@@ -39,6 +39,8 @@ var playState = {
 		game.physics.arcade.collide(this.enemy, this.walls);
 		game.physics.arcade.overlap(this.enemy, this.coin);
 		game.physics.arcade.collide(this.enemy, this.player, this.playerDie);
+		game.physics.arcade.collide(this.player, this.layer);
+ 		game.physics.arcade.collide(this.enemy, this.layer);
 
 		this.movePlayer();
 
@@ -121,6 +123,16 @@ var playState = {
 		game.sound.stopAll();
 	},
 
+	createNewWorld: function() {
+
+		this.map = game.add.tilemap('map');
+		this.map.addTileSetImage('tileset');
+		this.layer = this.map.createLayer('Tile Layer 1');
+
+		this.layer.resizeWorld();
+		this.map.setCollision(1);
+	},
+
 	createWorld: function() {
 
 		this.walls = game.add.group();
@@ -148,8 +160,7 @@ var playState = {
 	scoreFull: function() {
 	if (score === 100) {
 
-		game.state.start('gameover');
-		game.sound.stopAll();
+		this.createNewWorld();
 		}
 	}
 };

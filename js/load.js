@@ -21,6 +21,8 @@ var loadState = {
 		game.load.audio('coinaudio', 'assets/audio/coin.mp3');
 		game.load.audio('death', 'assets/audio/death.mp3');
 		game.load.audio('gameover', 'assets/audio/gameover.wav');
+		game.load.image('tileset', 'assets/images/tileset.png');
+		game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
 		
 	},
 
